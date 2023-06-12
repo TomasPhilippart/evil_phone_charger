@@ -1,0 +1,3836 @@
+Frame: 'frame0.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+English ✓
+f Continue with Facebook
+Phone number, username, or email
+username
+Password
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame1.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+Password
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame2.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame3.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+Password
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame4.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+English ✓
+f Continue with Facebook
+Phone number, username, or email
+username
+Password
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame5.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+n
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame6.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame7.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame8.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame9.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame10.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame11.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+8
+□
+================================================
+Frame: 'frame12.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame13.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame14.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame15.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+Password
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame16.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+Password
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Forgot password?
+Ô
+>
+Q
+:
+OC
+□
+================================================
+Frame: 'frame17.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Pl
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame18.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Pl
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+8
+□
+================================================
+Frame: 'frame19.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Pl
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame20.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+P
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+8
+□
+================================================
+Frame: 'frame21.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+P
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+8
+□
+================================================
+Frame: 'frame22.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+8
+□
+================================================
+Frame: 'frame23.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+Password
+.
+English v
+Phone number, username, or email
+username
+Continue with Facebook
+D
+OR
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+oc
+0
+================================================
+Frame: 'frame24.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+1
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+oc
+□
+================================================
+Frame: 'frame25.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame26.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame27.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame28.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+1
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame29.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+1
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame30.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+1
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame31.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+•A
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+0
+================================================
+Frame: 'frame32.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+•A
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame33.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+•A
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame34.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+•A
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame35.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+•A
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+0
+================================================
+Frame: 'frame36.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+•
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame37.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..S
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+0
+================================================
+Frame: 'frame38.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..S
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame39.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..S
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+0
+================================================
+Frame: 'frame40.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..S
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame41.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..S
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+0
+================================================
+Frame: 'frame42.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+...
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame43.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+...
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame44.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+...
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame45.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+...
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame46.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+...
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame47.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+...s
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame48.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+...s
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame49.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+...s
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame50.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame51.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame52.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame53.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame54.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame55.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame56.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame57.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....W
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame58.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....W
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame59.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....W
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame60.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+.....
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame61.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+.....
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame62.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+.....
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame63.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+.....
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame64.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+.....
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame65.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+.....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame66.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+.....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame67.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+.....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame68.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+.....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+oc
+0
+================================================
+Frame: 'frame69.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+.....O
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame70.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English ✓
+Password
+.....O
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame71.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+.....O
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame72.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+......
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame73.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+......
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame74.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+….....
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame75.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+......
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame76.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+......
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame77.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+......
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame78.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+......
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame79.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+….....R
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame80.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+….....R
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame81.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+……………..
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame82.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+……………..
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame83.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+……………..
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame84.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+……………..
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame85.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+……………..
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame86.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame87.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame88.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame89.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.......D
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame90.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.......D
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame91.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.......D
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame92.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.......D
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame93.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+Password
+........
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame94.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame95.jpg'
+------------
+11:15
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame96.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame97.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+n
+Instagram
+f Continue with Facebook
+English v
+Password
+........ T
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame98.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+........ T
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame99.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+........ T
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame100.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+........ T
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame101.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+........ T
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame102.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame103.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame104.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame105.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame106.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame107.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+●●●●●●●●●
+f Continue with Facebook
+Password
+English v
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame108.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.........E
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame109.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.........E
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame110.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame111.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame112.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame113.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+Password
+..........
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame114.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..........
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame115.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..........S
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame116.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..........S
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame117.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..........S
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame118.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..........S
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame119.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+..........S
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame120.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+.......…....
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame121.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame122.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame123.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame124.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+....….......T
+Phone number, username, or email
+username
+OR
+Y
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame125.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+5
+Instagram
+f Continue with Facebook
+English v
+Password
+…....…………….T|
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame126.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+....….......T
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+Show
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame127.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame128.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame129.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame130.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame131.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+f Continue with Facebook
+English v
+Password
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame132.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+Password
+........
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame133.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+Password
+........
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================
+Frame: 'frame134.jpg'
+------------
+11:16
+WebView Browser Tester 83.0.4103.120
+https://www.instagram.com/
+G
+Instagram
+Password
+........
+English v
+f Continue with Facebook
+Phone number, username, or email
+username
+OR
+D
+Trial version
+Log in
+There was a problem logging you into
+Instagram. Please try again soon.
+Don't have an account? Sign up
+Show
+Ô
+>
+Forgot password?
+Q
+:
+OC
+□
+================================================

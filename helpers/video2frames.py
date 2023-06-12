@@ -4,7 +4,7 @@ import os
 from datetime import timedelta
 
 # i.e if video of duration 30 seconds, saves 10 frame per second = 300 frames saved in total
-SAVING_FRAMES_PER_SECOND = 10
+SAVING_FRAMES_PER_SECOND = 5
 
 def format_timedelta(td):
     """Utility function to format timedelta objects in a cool way (e.g 00:00:20.05) 
@@ -27,6 +27,8 @@ def main(video_file):
     if not os.path.isdir(filename):
         os.mkdir(filename)
 
+    i = 0
+
     # if the SAVING_FRAMES_PER_SECOND is above video FPS, then set it to FPS (as maximum)
     saving_frames_per_second = min(video_clip.fps, SAVING_FRAMES_PER_SECOND)
     # if SAVING_FRAMES_PER_SECOND is set to 0, step is 1/fps, else 1/SAVING_FRAMES_PER_SECOND
@@ -35,7 +37,9 @@ def main(video_file):
     for current_duration in np.arange(0, video_clip.duration, step):
         # format the file name and save it
         frame_duration_formatted = format_timedelta(timedelta(seconds=current_duration))
-        frame_filename = os.path.join(filename, f"frame{frame_duration_formatted}.jpg")
+        #frame_filename = os.path.join(filename, f"frame{frame_duration_formatted}.jpg") OLD!
+        frame_filename = os.path.join(filename, f"frame{i}.jpg") # NEW!
+        i += 1 # NEW!
         # save the frame with the current duration
         video_clip.save_frame(frame_filename, current_duration)
         
