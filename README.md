@@ -1,5 +1,10 @@
-# evil_charger
-Evil Phone Charging Station
+# Evil Phone Charging Station
+Codebase for Research Project 2 - Building an Evil Phone Charging Station. 
+Author: Tomás Philippart
+
+Attack and threat model/setup:
+
+![Attack model](docs/AttackAndThreatModel.png)
 
 ## video2text.py
 Converts video into readable text, by frame. This still needs to be processed, however, to recover any sort of passwords.
