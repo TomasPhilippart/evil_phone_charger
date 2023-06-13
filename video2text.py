@@ -98,7 +98,7 @@ def frames2text():
 def write_results(results):
     results_file = os.path.splitext(args.filename.split("/")[-1])[0] # strip of initial directory (media/) and remove extension
 
-    print(f"Writing results to results/{results_file}.txt")    
+    print(f"Writing results to results/{results_file}.txt...")    
     with open(f"results/{results_file}.txt", "w") as file:
         results = dict(sorted(results.items(), key=lambda x: int(re.findall(r'\d+', x[0])[0])))
         for key in results:
@@ -108,7 +108,7 @@ def write_results(results):
             file.write("\n================================================\n")
         
 
-    print(f"Result saved in results/{os.path.splitext(args.filename)[0]}.txt") 
+    print("Done!") 
     
     
 if __name__ == "__main__":
