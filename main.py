@@ -20,8 +20,8 @@ import cv2
 import time
 from moviepy.editor import VideoFileClip
 
+# EDIT: Tesseract location (probably not the same for non-OSX users)
 pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
-
 
 # Parse arguments
 parser = argparse.ArgumentParser()
@@ -32,16 +32,13 @@ parser.add_argument('--ocr_mode', default='tesseract', choices=['tesseract', 'go
 parser.add_argument('--framerate', default='20', type=int, choices=range(1, 60), help='Framerate for capture (default: 20).')
 args = parser.parse_args()
 
-
-# Check file name:
-
-# Cleanup
+# (OPTIONAL) Cleanup: remove garbage, easier for testing
 os.system('./cleanup.sh')
 
-
 def frame_capture():
-    args.filename = f"media/{args.filename}"
+    args.filename = f"media/{args.filename}" # Change filename to include the media/ prefix, so we store frames there
     print("Starting frame capture... Press CTRL+C to stop recording frames.")
+    
     # Create directory
     os.mkdir(f"{args.filename}-frames")
 
@@ -66,8 +63,6 @@ def frame_capture():
             if ret: 
                 cv2.imwrite(f"{args.filename}-frames/frame{i}.jpg", frame)
                 i+=1
-                # Press Q on keyboard to stop recording
-
         
             # Break the loop
             else:
@@ -108,7 +103,6 @@ def video2frames():
         # save the frame with the current duration
         video_clip.save_frame(frame_filename, current_duration)
     
-
 def detect_text(path):
     from google.cloud import vision
     client = vision.ImageAnnotatorClient()
