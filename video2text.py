@@ -10,7 +10,6 @@
 #   SOFTWARE.
 
 import argparse
-import helpers.video2frames as video2frames
 from pathlib import Path
 import numpy as np
 from PIL import Image
