@@ -6,21 +6,46 @@ Attack and threat model/setup:
 
 ![Attack model](docs/AttackAndThreatModel.png)
 
-## video2text.py
-Converts video into readable text, by frame. This still needs to be processed, however, to recover any sort of passwords.
+## Installation:
 
-### Usage: 
-```
-python3 video2text.py --filename <FILENAME> [--framerate <FRAMERATE>, --mode <tesseract|google_vision>]
-```
+Simply install the requirements necessary by running:
 
-Check results ``.txt`` under ``/results`` folder.
-
-## framecapture.py: 
-Records video object such as USB HDMI passthrough capture, which should be connected to your laptop.
-
-### Usage:
-```
-python3 framecapture.py --filename <FILENAME> [--framerate <FRAMERATE>]
+```console
+$ pip3 install -r requirements.txt
 ```
 
+NOTE: All of the development was done on MacOS Ventura, I cannot confirm that all of the code is cross-platform.
+
+## Usage: 
+
+```console
+$ python3 main.py [--mode <usb, video>] --filename <FILENAME> [--framerate <FRAMERATE>, --mode <tesseract|google_vision>]
+```
+
+Check ``.txt`` under ``/results`` folder for the processed text.
+
+## Examples
+
+### Capturing from a USB device (like in the attack and threat model setup)
+
+```console
+$ python3 main.py --mode usb --filename HDMI_Capture --capture_time 15 --ocr_mode tesseract
+Starting frame capture... Press CTRL+C to stop recording frames.
+Converting frames to text using tesseract mode...
+Writing results to results/HDMI_Capture.txt...
+Done!
+```
+
+### Converting pre-existing video (screen recording) to processed text
+
+```console
+$ python3 main.py --mode video --filename media/instagram_login_slow.mp4 --framerate 5 --ocr_mode tesseract
+Converting video to frames...
+Converting frames to text using tesseract mode...
+Writing results to results/instagram_login_slow.txt...
+Done!
+```
+
+## Results
+
+WIP!

@@ -16,6 +16,8 @@ from PIL import Image
 import pytesseract
 import os
 import re
+import cv2
+import time
 from moviepy.editor import VideoFileClip
 
 pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
@@ -23,13 +25,64 @@ pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
 
 # Parse arguments
 parser = argparse.ArgumentParser()
+parser.add_argument('--mode', default="video", type=str, choices=['usb', 'video'], help='Either capture frames directly from USB device or use video file.')
+parser.add_argument('--capture_time', default="100", type=int, help='How many seconds to capture. Unlimited is 0. (default: 10).')
 parser.add_argument('--filename', required=True, type=str, help='Filename for video to process.')
-parser.add_argument('--mode', default='tesseract', choices=['tesseract', 'google_vision'], help='Use either Tesseract (default) or Google Cloud Vision API (paid!)')
+parser.add_argument('--ocr_mode', default='tesseract', choices=['tesseract', 'google_vision'], help='Use either Tesseract (default) or Google Cloud Vision API (paid!)')
 parser.add_argument('--framerate', default='20', type=int, choices=range(1, 60), help='Framerate for capture (default: 20).')
 args = parser.parse_args()
 
+
+# Check file name:
+
 # Cleanup
 os.system('./cleanup.sh')
+
+
+def frame_capture():
+    args.filename = f"media/{args.filename}"
+    print("Starting frame capture... Press CTRL+C to stop recording frames.")
+    # Create directory
+    os.mkdir(f"{args.filename}-frames")
+
+    # Create a VideoCapture object
+    cap = cv2.VideoCapture(1)
+    
+    # Check if camera opened successfully
+    if not cap.isOpened(): 
+        print("Unable to read camera feed")
+    
+    # Default resolutions of the frame are obtained.The default resolutions are system dependent.
+    # We convert the resolutions from float to integer.
+    frame_width = int(cap.get(3))
+    frame_height = int(cap.get(4))
+    
+    i = 0
+    time_start = time.time()
+    try:
+        while((args.capture_time != 0 and time.time() < time_start + args.capture_time) or (args.capture_time == 0)) :
+            ret, frame = cap.read()
+        
+            if ret: 
+                cv2.imwrite(f"{args.filename}-frames/frame{i}.jpg", frame)
+                i+=1
+                # Press Q on keyboard to stop recording
+
+        
+            # Break the loop
+            else:
+                break 
+        
+            time.sleep(1/args.framerate)
+    except KeyboardInterrupt:
+        print("CTRL+C detected, stopping frame capture.")
+        pass
+    # When everything done, release the video capture and video write objects
+    cap.release()
+    
+    # Closes all the frames
+    cv2.destroyAllWindows() 
+
 
 def video2frames():
     print("Converting video to frames...")
@@ -54,7 +107,7 @@ def video2frames():
         i += 1 
         # save the frame with the current duration
         video_clip.save_frame(frame_filename, current_duration)
-
+    
 
 def detect_text(path):
     from google.cloud import vision
@@ -77,16 +130,16 @@ def detect_text(path):
     return texts[0].description
 
 def frames2text():
-    print(f"Converting frames to text using {args.mode} mode...")
+    print(f"Converting frames to text using {args.ocr_mode} mode...")
     results = {}
     
     frame_directory = f"{os.path.splitext(args.filename)[0]}-frames"
     
-    if args.mode == "google_vision":
+    if args.ocr_mode == "google_vision":
         for video_frame in Path(frame_directory).glob('*'):
             results[video_frame.name] = detect_text(f'{frame_directory}/{video_frame.name}')
 
-    elif args.mode == "tesseract":
+    elif args.ocr_mode == "tesseract":
         for video_frame in Path(frame_directory).glob('*'):
             try:
                 results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng', config='--psm 1', timeout=2)
@@ -106,12 +159,14 @@ def write_results(results):
             file.write("------------\n")
             file.write(results[key])
             file.write("\n================================================\n")
-        
-
+    
     print("Done!") 
     
-    
+
 if __name__ == "__main__":
-    video2frames()
+    if args.mode == "usb":
+        frame_capture()
+    elif args.mode == "video":
+        video2frames()
     results = frames2text()
     write_results(results)
