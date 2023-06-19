@@ -31,7 +31,7 @@ parser.add_argument('--mode', default="video", type=str, choices=['usb', 'video'
 parser.add_argument('--capture_time', default="100", type=int, help='How many seconds to capture. Unlimited is 0. (default: 10).')
 parser.add_argument('--filename', required=True, type=str, help='Filename for video to process.')
 parser.add_argument('--ocr_mode', default='tesseract', choices=['tesseract', 'google_vision'], help='Use either Tesseract (default) or Google Cloud Vision API (paid!)')
-parser.add_argument('--framerate', default='20', type=int, choices=range(1, 60), help='Framerate for capture (default: 20).')
+parser.add_argument('--framerate', default='20', type=int, choices=range(1, 31), help='Framerate for capture (default: 20).')
 args = parser.parse_args()
 
 # (OPTIONAL) Cleanup: remove garbage, easier for testing
@@ -187,7 +187,7 @@ def frames2text(num_frames):
                     # check tesseract trained data/model
                     # pillow image processing
                     # on-screen keyboard processing
-                    results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng', config='--psm 1', timeout=2)
+                    results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng', config='--psm 1 --dpi 72', timeout=2)
                 except RuntimeError as timeout_error:
                     # Tesseract processing is terminated
                     pass
