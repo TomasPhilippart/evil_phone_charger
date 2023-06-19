@@ -40,10 +40,10 @@ Done!
 
 ```console
 $ python3 main.py --mode video --filename media/instagram_login.mp4 --framerate 5 --ocr_mode tesseract
-Converting video to frames...
-Converting frames to text using tesseract mode...
-Writing results to results/instagram_login.txt...
-Done!
+Converting video to frames: 100%|██████████████████████████████████████████████| 805/805 [00:26<00:00, 30.57frame/s]
+Filtering duplicate frames: 100%|████████████████████████████████████████████| 805/805 [00:00<00:00, 1776.90frame/s]
+Converting frames to text: 100%|███████████████████████████████████████████████| 515/515 [05:00<00:00,  1.71frame/s]
+Results writen to results/instagram_login.txt.
 ```
 
 ## Results
