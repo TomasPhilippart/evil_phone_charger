@@ -12,13 +12,15 @@
 import argparse
 from pathlib import Path
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageChops
 import pytesseract
 import os
 import re
 import cv2
 import time
 from moviepy.editor import VideoFileClip
+import hashlib
+from tqdm import tqdm
 
 # EDIT: Tesseract location (probably not the same for non-OSX users)
 pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
@@ -78,9 +80,10 @@ def frame_capture():
     # Closes all the frames
     cv2.destroyAllWindows() 
 
+    return i
+
 
 def video2frames():
-    print("Converting video to frames...")
     # load the video clip
     video_clip = VideoFileClip(args.filename)
     # make a folder by the name of the video file
@@ -96,12 +99,14 @@ def video2frames():
     # if SAVING_FRAMES_PER_SECOND is set to 0, step is 1/fps, else 1/SAVING_FRAMES_PER_SECOND
     step = 1 / video_clip.fps if saving_frames_per_second == 0 else 1 / saving_frames_per_second
     # iterate over each possible frame
-    for current_duration in np.arange(0, video_clip.duration, step):
+    for current_duration in tqdm(np.arange(0, video_clip.duration, step), desc="Converting video to frames", unit="frame"):
         # format the file name and save it
         frame_filename = os.path.join(filename, f"frame{i}.jpg") 
         i += 1 
         # save the frame with the current duration
         video_clip.save_frame(frame_filename, current_duration)
+    
+    return i
     
 def detect_text(path):
     from google.cloud import vision
@@ -123,29 +128,75 @@ def detect_text(path):
         
     return texts[0].description
 
-def frames2text():
-    print(f"Converting frames to text using {args.ocr_mode} mode...")
-    results = {}
+
+
+def filter_duplicate_frames(frame_directory):
+    file_dict = {}
+    duplicate_frames = 0
     
-    frame_directory = f"{os.path.splitext(args.filename)[0]}-frames"
-    
-    if args.ocr_mode == "google_vision":
+    # Count the total number of files in the directory
+    total_files = sum(1 for _ in Path(frame_directory).glob('*'))
+
+    with tqdm(total=total_files, unit='frame', desc="Filtering duplicate frames") as pbar:
         for video_frame in Path(frame_directory).glob('*'):
-            results[video_frame.name] = detect_text(f'{frame_directory}/{video_frame.name}')
+            if video_frame.is_file():
+                frame_path = str(video_frame)
+
+                # Calculate the SHA checksum of the frame
+                with open(frame_path, 'rb') as f:
+                    frame_hash = hashlib.sha256(f.read()).hexdigest()
+
+                # Check if the checksum already exists in the dictionary
+                if frame_hash in file_dict:
+                    # Duplicate frame found
+                    os.remove(frame_path)
+                    duplicate_frames += 1
+                else:
+                    # Add the frame to the dictionary with its checksum
+                    file_dict[frame_hash] = frame_path
+
+            # Update the progress bar
+            pbar.update(1)
+            
+    #print(f"Removed {duplicate_frames} duplicate frames.")
+    return duplicate_frames
+
+def frames2text(num_frames):
+    results = {}
+    frame_directory = f"{os.path.splitext(args.filename)[0]}-frames"
+
+    # Filter out duplicate frames
+    num_unique_frames = num_frames - filter_duplicate_frames(frame_directory)
+    frame_files = list(Path(frame_directory).glob('*'))
+
+
+    # Convert frames to text
+    if args.ocr_mode == "google_vision":
+        with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
+            for video_frame in frame_files:
+                results[video_frame.name] = detect_text(f'{frame_directory}/{video_frame.name}')
+                pbar.update(1)
+
 
     elif args.ocr_mode == "tesseract":
-        for video_frame in Path(frame_directory).glob('*'):
-            try:
-                results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng', config='--psm 1', timeout=2)
-            except RuntimeError as timeout_error:
-                # Tesseract processing is terminated
-                pass
+        with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
+            for video_frame in frame_files:
+                try:
+                    # 1. optimize and remove same frames
+                    # 2. gray scale
+                    # check tesseract trained data/model
+                    # pillow image processing
+                    # on-screen keyboard processing
+                    results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng', config='--psm 1', timeout=2)
+                except RuntimeError as timeout_error:
+                    # Tesseract processing is terminated
+                    pass
+                pbar.update(1)
     return results
     
 def write_results(results):
     results_file = os.path.splitext(args.filename.split("/")[-1])[0] # strip of initial directory (media/) and remove extension
 
-    print(f"Writing results to results/{results_file}.txt...")    
     with open(f"results/{results_file}.txt", "w") as file:
         results = dict(sorted(results.items(), key=lambda x: int(re.findall(r'\d+', x[0])[0])))
         for key in results:
@@ -154,13 +205,12 @@ def write_results(results):
             file.write(results[key])
             file.write("\n================================================\n")
     
-    print("Done!") 
-    
+    print(f"Results writen to results/{results_file}.txt.")        
 
 if __name__ == "__main__":
     if args.mode == "usb":
-        frame_capture()
+        num_frames = frame_capture()
     elif args.mode == "video":
-        video2frames()
-    results = frames2text()
+        num_frames = video2frames()
+    results = frames2text(num_frames)
     write_results(results)
