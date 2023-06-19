@@ -168,6 +168,8 @@ def frames2text(num_frames):
     # Filter out duplicate frames
     num_unique_frames = num_frames - filter_duplicate_frames(frame_directory)
     frame_files = list(Path(frame_directory).glob('*'))
+    
+
 
 
     # Convert frames to text
@@ -182,12 +184,7 @@ def frames2text(num_frames):
         with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
             for video_frame in frame_files:
                 try:
-                    # 1. optimize and remove same frames
-                    # 2. gray scale
-                    # check tesseract trained data/model
-                    # pillow image processing
-                    # on-screen keyboard processing
-                    results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng', config='--psm 1 --dpi 72', timeout=2)
+                    results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng+osd', config='--oem 1 --psm 1 --dpi 72', timeout=2)
                 except RuntimeError as timeout_error:
                     # Tesseract processing is terminated
                     pass
