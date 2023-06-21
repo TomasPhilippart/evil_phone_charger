@@ -32,7 +32,7 @@ Check ``.txt`` under ``/results`` folder for the processed text.
 $ python3 change_detect.py --frame_dir media/google_login-frames [--interactive]
 ```
 
-Use --interactive first to see how this program actually works. User input:
+Use ``--interactive`` first to see how this program actually works. User input:
   * "a": previous frame
   * "d": next frame
   * "q": quit
