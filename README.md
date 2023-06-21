@@ -26,6 +26,21 @@ Check ``.txt`` under ``/results`` folder for the processed text.
 
 ## Examples
 
+### Using change_detect.py
+
+```console
+$ python3 change_detect.py --frame_dir media/google_login-frames [--interactive]
+```
+
+Use --interactive first to see how this program actually works. User input:
+  * "a": previous frame
+  * "d": next frame
+  * "q": quit
+  * " " (spacebar): for now nothing really, but will do something one day
+
+Not using it simply prints out the OCR'd text of the character difference, without requiring user input.
+
+
 ### Capturing from a USB device (like in the attack and threat model setup)
 
 ```console
