@@ -35,7 +35,7 @@ parser.add_argument('--framerate', default='20', type=int, choices=range(1, 31),
 args = parser.parse_args()
 
 # (OPTIONAL) Cleanup: remove garbage, easier for testing
-os.system('./cleanup.sh')
+#os.system('./cleanup.sh')
 
 def frame_capture():
     args.filename = f"media/{args.filename}" # Change filename to include the media/ prefix, so we store frames there
