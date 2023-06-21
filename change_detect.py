@@ -1,3 +1,4 @@
+import argparse
 import cv2
 import os
 import re
@@ -7,87 +8,197 @@ import numpy as np
 # Set the path to the Tesseract executable
 pytesseract.pytesseract.tesseract_cmd = r"/opt/homebrew/bin/tesseract"
 
-# Directory containing the images
-image_directory = "media/instagram_login-frames"
+# Threshold for blurriness detection
+BLUR_THRESHOLD = 1000
 
-# Get the image files and sort them in a natural order
-image_files = sorted(os.listdir(image_directory), key=lambda x: [int(c) if c.isdigit() else c.lower() for c in re.split('(\d+)', x)])
+VERTICAL_TOLERANCE = 100
 
-# Read the first image
-prev_image = cv2.imread(os.path.join(image_directory, image_files[0]))
+TRADEOFF_RATIO = 0.5
 
-index = 0
-while True:
-    # Read the current image
-    curr_image = cv2.imread(os.path.join(image_directory, image_files[index]))
+# Characters that can belong in a password
+CHARACTER_WHITELIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=[]{};:,.<>/?"
 
-    # Calculate the absolute difference between the images
-    diff = cv2.absdiff(prev_image, curr_image)
+# Parse arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('--frame_dir', required=True, type=str, help='Directory where frames are stored.')
+parser.add_argument('--interactive', action='store_true', help='Run the program in interactive mode with user input.')
+args = parser.parse_args()
 
-    # Convert the difference image to grayscale
-    gray_diff = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+def preprocess_images(image_directory):
+    # Get the image files and sort them in a natural order
+    image_files = sorted(os.listdir(image_directory), key=lambda x: [int(c) if c.isdigit() else c.lower() for c in re.split('(\d+)', x)])
+    images = []
 
-    # Threshold the grayscale difference image
-    _, threshold = cv2.threshold(gray_diff, 30, 255, cv2.THRESH_BINARY)
+    for filename in image_files:
+        image_path = os.path.join(image_directory, filename)
+        image = cv2.imread(image_path)
+        images.append(image)
 
-    # Find contours in the binary threshold image
-    contours, _ = cv2.findContours(threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    return images
 
-    if len(contours) > 0:
-        # Find the contour with the largest area
-        largest_contour = max(contours, key=cv2.contourArea)
+def calculate_absolute_difference(prev_image, curr_image):
+    return cv2.absdiff(prev_image, curr_image)
 
-        # Create a mask of the largest contour
-        mask = np.zeros_like(gray_diff)
-        cv2.drawContours(mask, [largest_contour], 0, 255, thickness=cv2.FILLED)
+def convert_to_grayscale(image):
+    if len(image.shape) == 3:
+        return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    return image
 
-        # Apply dilation to enlarge the largest contour
-        kernel = np.ones((15, 15), np.uint8)
-        dilated_mask = cv2.dilate(mask, kernel, iterations=1)
+def threshold_image(image):
+    _, threshold = cv2.threshold(image, 30, 255, cv2.THRESH_BINARY)
+    return threshold
 
-        # Apply the mask to the grayscale difference image
-        masked_diff = cv2.bitwise_and(gray_diff, dilated_mask)
+def find_largest_contour(image, prev_contour=None):
+    contours, _ = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        # Crop the masked grayscale difference image
-        cropped_diff = masked_diff[:, 5:-5]
+    if prev_contour is None or len(contours) == 0:
+        return max(contours, key=cv2.contourArea) if len(contours) > 0 else None
 
-        # Convert the cropped grayscale difference image to a 3-channel image
-        cropped_diff_rgb = cv2.cvtColor(cropped_diff, cv2.COLOR_GRAY2BGR)
+    prev_y = prev_contour[:, 0, 1].mean()  # Mean y-coordinate of previous contour
 
-        # Create a side-by-side comparison image
-        comparison_image = cv2.hconcat([prev_image, curr_image])
+    # Filter contours within a certain y-coordinate range
+    candidate_contours = [contour for contour in contours if abs(contour[:, 0, 1].mean() - prev_y) <= VERTICAL_TOLERANCE]
 
-        # Paint the background of the cropped difference image in light yellow color
-        mask = cropped_diff == 0
-        cropped_diff_rgb[mask] = (255, 255, 153)  # Light yellow color (BGR)
+    if len(candidate_contours) == 0:
+        return None
 
-        # Create a combined image with the comparison and cropped difference
-        combined_image = cv2.hconcat([comparison_image, cropped_diff_rgb])
+    largest_contour = max(candidate_contours, key=cv2.contourArea)
+    largest_contour_area = cv2.contourArea(largest_contour)
 
-        # Display the combined image with the painted background
-        cv2.imshow("Image Comparison", combined_image)
-    else:
-        # Display the original comparison image if no contours found
-        comparison_image = cv2.hconcat([prev_image, curr_image])
-        cv2.imshow("Image Comparison", comparison_image)
+    if prev_contour is not None:
+        closest_contour = min(candidate_contours, key=lambda contour: abs(contour[:, 0, 1].mean() - prev_y))
+        closest_contour_area = cv2.contourArea(closest_contour)
 
-    key = cv2.waitKey(0)
+        if 1 - TRADEOFF_RATIO * largest_contour_area > TRADEOFF_RATIO * closest_contour_area:
+            return largest_contour
 
-    if key == ord("q"):
-        break
-    elif key == ord("d"):
-        index = min(index + 1, len(image_files) - 1)
-        prev_image = curr_image
-    elif key == ord("a"):
-        index = max(index - 1, 0)
-        prev_image = curr_image
-    elif key == ord(" "):  # Press spacebar to perform OCR
-        if len(contours) > 0:
-            # Perform OCR using pytesseract on the cropped difference image
-            text = pytesseract.image_to_string(cropped_diff, config="--psm 10 -l eng")
-            print("OCR Text:")
-            print(text)
+    return closest_contour
+
+def calculate_laplacian_variance(image):
+    gray = convert_to_grayscale(image)
+    laplacian = cv2.Laplacian(gray, cv2.CV_64F)
+    return np.var(laplacian)
+
+def create_contour_mask(image, contour):
+    mask = np.zeros_like(image)
+    cv2.drawContours(mask, [contour], 0, 255, thickness=cv2.FILLED)
+    return mask
+
+def apply_dilation(image, iterations=1):
+    kernel = np.ones((15, 15), np.uint8)
+    return cv2.dilate(image, kernel, iterations=iterations)
+
+def apply_mask(image, mask):
+    return cv2.bitwise_and(image, mask)
+
+def crop_image(image, x, y, w, h):
+    return image[y:y + h, x:x + w]
+
+def perform_ocr(image):
+    text = pytesseract.image_to_string(image, config="--psm 10 -l eng")
+    return text
+
+def save_image(image, path):
+    cv2.imwrite(path, image)
+
+def display_image(image, window_name, frame_index, total_frames):
+    if args.interactive:
+        title = f"Motion-based detection - [{frame_index}/{total_frames}]"
+        cv2.setWindowTitle(window_name, title)
+        cv2.imshow(window_name, image)
+        cv2.waitKey(0)
+
+def main():
+    # Directory containing the images
+    image_directory = args.frame_dir
+
+    # Preprocess the images
+    images = preprocess_images(image_directory)
+
+    prev_image = images[0]
+    prev_contour = None
+    index = 0
+
+    ocr_text = ""  # Initialize OCR text string
+
+    while index < len(images) - 1:
+        
+        curr_image = images[index]
+
+        diff = calculate_absolute_difference(prev_image, curr_image)
+        gray_diff = convert_to_grayscale(diff)
+        threshold = threshold_image(gray_diff)
+
+        contour = find_largest_contour(threshold, prev_contour)
+
+        if contour is not None:
+            mask = create_contour_mask(gray_diff, contour)
+            dilated_mask = apply_dilation(mask)
+
+            masked_diff = apply_mask(gray_diff, dilated_mask)
+
+            contours, _ = cv2.findContours(dilated_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            if len(contours) > 0:
+                x, y, w, h = cv2.boundingRect(max(contours, key=cv2.contourArea))
+                cropped_diff = crop_image(masked_diff, x, y, w, h)
+            else:
+                cropped_diff = masked_diff
+
+            cropped_diff = cropped_diff[:, int(cropped_diff.shape[1] * 0.23):-int(cropped_diff.shape[1] * 0.24)]
+            cropped_diff_rgb = cv2.cvtColor(cropped_diff, cv2.COLOR_GRAY2BGR)
+
+            comparison_image = cv2.hconcat([prev_image, curr_image])
+
+            mask = cropped_diff == 0
+            cropped_diff_rgb[mask] = (0, 0, 0)
+
+            height = max(comparison_image.shape[0], cropped_diff_rgb.shape[0])
+            comparison_image = cv2.resize(comparison_image, (0, 0), fx=height/comparison_image.shape[0], fy=height/comparison_image.shape[0])
+            cropped_diff_rgb = cv2.resize(cropped_diff_rgb, (0, 0), fx=height/cropped_diff_rgb.shape[0], fy=height/cropped_diff_rgb.shape[0])
+
+            combined_image = np.concatenate((comparison_image, cropped_diff_rgb), axis=1)
+
+            # Blurriness and text detection
+            laplacian_var = calculate_laplacian_variance(cropped_diff)
+            
+            is_blurry = laplacian_var < BLUR_THRESHOLD
+
+            display_image(combined_image, "Image Comparison", index+1, len(images))
+
+            if not is_blurry:
+                text = perform_ocr(cropped_diff).strip()
+                prev_contour = contour
+                
+                if text in CHARACTER_WHITELIST:
+                    ocr_text += text  # Append OCR text to the string
+                    print(f"OCR Text: '{ocr_text}'")
+
+                # Save cropped image
+                #cropped_image_path = f"cropped_image_{index}.jpg"
+                #save_image(cropped_diff, cropped_image_path)
+                #print(f"Cropped image saved as: {cropped_image_path}")
         else:
-            print("No contours found.")
+            comparison_image = cv2.hconcat([prev_image, curr_image])
+            display_image(comparison_image, "Image Comparison", index+1, len(images))
 
-cv2.destroyAllWindows()
+        if args.interactive:
+            key = cv2.waitKey(0)
+
+            if key == ord("q"):
+                break
+            elif key == ord("d"):
+                index = min(index + 1, len(images) - 1)
+                prev_image = curr_image
+            elif key == ord("a"):
+                index = max(index - 1, 0)
+                prev_image = curr_image
+            elif key == ord(" "):
+                continue  # Skip OCR if the image is not shown
+        else:
+            index = min(index + 1, len(images) - 1)
+            prev_image = curr_image
+            
+        cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()

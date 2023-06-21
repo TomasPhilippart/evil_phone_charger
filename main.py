@@ -45,7 +45,7 @@ def frame_capture():
     os.mkdir(f"{args.filename}-frames")
 
     # Create a VideoCapture object
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
     
     # Check if camera opened successfully
     if not cap.isOpened(): 
