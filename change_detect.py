@@ -8,12 +8,13 @@ import numpy as np
 # Set the path to the Tesseract executable
 pytesseract.pytesseract.tesseract_cmd = r"/opt/homebrew/bin/tesseract"
 
-# Threshold for blurriness detection
+# Threshold for fine tuning
 BLUR_THRESHOLD = 1000
-
+CONTRAST_THRESHOLD = 200
+CONFIDENCE_THRESHOLD = 80
 VERTICAL_TOLERANCE = 100
-
 TRADEOFF_RATIO = 0.5
+
 
 # Characters that can belong in a password
 CHARACTER_WHITELIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=[]{};:,.<>/?"
@@ -95,8 +96,18 @@ def crop_image(image, x, y, w, h):
     return image[y:y + h, x:x + w]
 
 def perform_ocr(image):
-    text = pytesseract.image_to_string(image, config="--psm 10 -l eng")
-    return text
+    text_data = pytesseract.image_to_data(image, config="--psm 10 -l eng", output_type=pytesseract.Output.DICT)
+    confidences = text_data["conf"]
+    texts = text_data["text"]
+
+    # Filter texts by confidence threshold
+    valid_texts = [text for confidence, text in zip(confidences, texts) if confidence > CONFIDENCE_THRESHOLD]
+
+    if len(valid_texts) > 0:
+        max_confidence_text = max(valid_texts, key=lambda x: confidences[texts.index(x)])
+        return max_confidence_text
+    else:
+        return ""
 
 def save_image(image, path):
     cv2.imwrite(path, image)
@@ -160,8 +171,9 @@ def main():
 
             # Blurriness and text detection
             laplacian_var = calculate_laplacian_variance(cropped_diff)
-            
             is_blurry = laplacian_var < BLUR_THRESHOLD
+            # Calculate contrast
+            contrast = np.max(cropped_diff) - np.min(cropped_diff)
 
             display_image(combined_image, "Image Comparison", index+1, len(images))
 
@@ -169,7 +181,7 @@ def main():
                 text = perform_ocr(cropped_diff).strip()
                 prev_contour = contour
                 
-                if text in CHARACTER_WHITELIST:
+                if (contrast > CONTRAST_THRESHOLD) and (text in CHARACTER_WHITELIST):
                     ocr_text += text  # Append OCR text to the string
                     print(f"OCR Text: '{ocr_text}'")
 
