@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 import cv2
 import os
 import re
@@ -95,6 +96,35 @@ def apply_mask(image, mask):
 def crop_image(image, x, y, w, h):
     return image[y:y + h, x:x + w]
 
+def join_images_horizontally(image_directory, output_path):
+    images = []
+    max_height = 0
+
+    # Get the image files and sort them based on creation time
+    image_files = sorted(os.listdir(image_directory), key=lambda x: os.path.getmtime(os.path.join(image_directory, x)))
+
+    for filename in image_files:
+        image = cv2.imread(image_path)
+
+        if image is not None:
+            images.append(image)
+            max_height = max(max_height, image.shape[0])
+
+    resized_images = []
+    for image in images:
+        height, width = image.shape[:2]
+        scale = max_height / height
+        resized_image = cv2.resize(image, (int(width * scale), max_height))
+        resized_images.append(resized_image)
+
+    concatenated_image = cv2.hconcat(resized_images)
+    cv2.imwrite(output_path, concatenated_image)
+    
+    # Delete all files inside the image_directory
+    [os.remove(os.path.join(image_directory, file)) for file in os.listdir(image_directory) if os.path.isfile(os.path.join(image_directory, file))]
+    
+    
+
 def perform_ocr(image):
     text_data = pytesseract.image_to_data(image, config="--psm 10 -l eng", output_type=pytesseract.Output.DICT)
     confidences = text_data["conf"]
@@ -108,7 +138,7 @@ def perform_ocr(image):
         return max_confidence_text
     else:
         return ""
-
+    
 def save_image(image, path):
     cv2.imwrite(path, image)
 
@@ -181,14 +211,14 @@ def main():
                 text = perform_ocr(cropped_diff).strip()
                 prev_contour = contour
                 
-                if (contrast > CONTRAST_THRESHOLD) and (text in CHARACTER_WHITELIST):
+                if (contrast > CONTRAST_THRESHOLD) and (text in CHARACTER_WHITELIST) and (text != ""):
                     ocr_text += text  # Append OCR text to the string
                     print(f"OCR Text: '{ocr_text}'")
 
-                # Save cropped image
-                #cropped_image_path = f"cropped_image_{index}.jpg"
-                #save_image(cropped_diff, cropped_image_path)
-                #print(f"Cropped image saved as: {cropped_image_path}")
+                    # Save corresponding image
+                    Path("results/temp").mkdir(parents=True, exist_ok=True)
+                    cropped_image_path = f"results/temp/cropped_image_{text}-{index}.jpg"
+                    save_image(cropped_diff, cropped_image_path)
         else:
             comparison_image = cv2.hconcat([prev_image, curr_image])
             display_image(comparison_image, "Image Comparison", index+1, len(images))
@@ -204,13 +234,15 @@ def main():
             elif key == ord("a"):
                 index = max(index - 1, 0)
                 prev_image = curr_image
-            elif key == ord(" "):
-                continue  # Skip OCR if the image is not shown
         else:
             index = min(index + 1, len(images) - 1)
             prev_image = curr_image
             
         cv2.destroyAllWindows()
+    
+    
+    return ocr_text
 
 if __name__ == "__main__":
-    main()
+    ocr_text = main()
+    join_images_horizontally("results/temp", f"results/result_{ocr_text}.jpg")
