@@ -1,5 +1,4 @@
 moviepy==1.0.3
-numpy==1.24.3
 numpy==1.22.4
 opencv_python==4.5.5.64
 Pillow==9.0.1
