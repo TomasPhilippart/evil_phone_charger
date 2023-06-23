@@ -22,8 +22,6 @@ from moviepy.editor import VideoFileClip
 import hashlib
 from tqdm import tqdm
 
-# EDIT: Tesseract location (probably not the same for non-OSX users)
-pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'
 
 # Parse arguments
 parser = argparse.ArgumentParser()
@@ -179,6 +177,7 @@ def frames2text(num_frames):
                 results[video_frame.name] = detect_text(f'{frame_directory}/{video_frame.name}')
                 pbar.update(1)
 
+
     elif args.ocr_mode == "tesseract":
         with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
             for video_frame in frame_files:
@@ -189,7 +188,6 @@ def frames2text(num_frames):
                     pass
                 pbar.update(1)
     return results
-
     
 def write_results(results):
     results_file = os.path.splitext(args.filename.split("/")[-1])[0] # strip of initial directory (media/) and remove extension
