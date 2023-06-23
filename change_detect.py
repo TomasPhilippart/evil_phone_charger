@@ -5,14 +5,15 @@ import os
 import re
 import pytesseract
 import numpy as np
+import easyocr
 
 # Threshold for fine tuning
 BLUR_THRESHOLD = 1000
 CONTRAST_THRESHOLD = 200
-CONFIDENCE_THRESHOLD = 80
+CONFIDENCE_THRESHOLD_TESSERACT = 70
+CONFIDENCE_THRESHOLD_EASYOCR = 0.4
 VERTICAL_TOLERANCE = 100
 TRADEOFF_RATIO = 0.5
-
 
 # Characters that can belong in a password
 CHARACTER_WHITELIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=[]{};:,.<>/?"
@@ -21,7 +22,12 @@ CHARACTER_WHITELIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234
 parser = argparse.ArgumentParser()
 parser.add_argument('--frame_dir', required=True, type=str, help='Directory where frames are stored.')
 parser.add_argument('--interactive', action='store_true', help='Run the program in interactive mode with user input.')
+parser.add_argument('--ocr', choices=['tesseract', 'easyocr'], default='easyocr', help='Choose the OCR engine to use.')
 args = parser.parse_args()
+
+# easy ocr reader
+if args.ocr == "easyocr":
+    reader = easyocr.Reader(['en'])
 
 def preprocess_images(image_directory):
     # Get the image files and sort them in a natural order
@@ -108,34 +114,46 @@ def join_images_horizontally(image_directory, output_path):
             images.append(image)
             max_height = max(max_height, image.shape[0])
 
-    resized_images = []
-    for image in images:
-        height, width = image.shape[:2]
-        scale = max_height / height
-        resized_image = cv2.resize(image, (int(width * scale), max_height))
-        resized_images.append(resized_image)
+    if len(images) > 0:
+        resized_images = []
+        for image in images:
+            height, width = image.shape[:2]
+            scale = max_height / height
+            resized_image = cv2.resize(image, (int(width * scale), max_height))
+            resized_images.append(resized_image)
 
-    concatenated_image = cv2.hconcat(resized_images)
-    cv2.imwrite(output_path, concatenated_image)
-    
+        concatenated_image = cv2.hconcat(resized_images)
+        cv2.imwrite(output_path, concatenated_image)
+
     # Delete all files inside the image_directory
-    [os.remove(os.path.join(image_directory, file)) for file in os.listdir(image_directory) if os.path.isfile(os.path.join(image_directory, file))]
-    
+    [os.remove(os.path.join(image_directory, file)) for file in os.listdir(image_directory) if
+     os.path.isfile(os.path.join(image_directory, file))]
+
     
 def perform_ocr(image):
-    text_data = pytesseract.image_to_data(image, config="--psm 10 -l eng", output_type=pytesseract.Output.DICT)
-    confidences = text_data["conf"]
-    texts = text_data["text"]
+    if args.ocr == "tesseract":
+        text_data = pytesseract.image_to_data(image, config="--psm 10 -l eng --dpi 72", output_type=pytesseract.Output.DICT)
+        confidences = text_data["conf"]
+        texts = text_data["text"]
 
-    # Filter texts by confidence threshold
-    valid_texts = [text for confidence, text in zip(confidences, texts) if confidence > CONFIDENCE_THRESHOLD]
+        # Filter texts by confidence threshold
+        valid_texts = [text for confidence, text in zip(confidences, texts) if confidence > CONFIDENCE_THRESHOLD_TESSERACT]
 
-    if len(valid_texts) > 0:
-        max_confidence_text = max(valid_texts, key=lambda x: confidences[texts.index(x)])
-        return max_confidence_text
-    else:
-        return ""
+        if len(valid_texts) > 0:
+            max_confidence_text = max(valid_texts, key=lambda x: confidences[texts.index(x)])
+            return max_confidence_text
+        
+    elif args.ocr == "easyocr":
+        results = reader.readtext(image)
+        valid_texts = [result[1] for result in results if result[2] > CONFIDENCE_THRESHOLD_EASYOCR]
+
+        if len(valid_texts) > 0:
+            max_confidence_text = max(valid_texts, key=len)
+            return max_confidence_text.strip()
     
+    return ""
+
+
 def save_image(image, path):
     cv2.imwrite(path, image)
 

@@ -6,6 +6,12 @@ Attack and threat model/setup:
 
 ![Attack model](docs/AttackAndThreatModel.png)
 
+
+## TODO:
+
+- Make EasyOCR perform single character recognition, fine tune settings for it.
+- Experiment with other OCR engines (doctr, Google Cloud Vision, etc.)
+
 ## Installation:
 
 Simply install the requirements necessary by running:
@@ -29,7 +35,7 @@ Check ``.txt`` under ``/results`` folder for the processed text.
 ### Using change_detect.py
 
 ```console
-$ python3 change_detect.py --frame_dir media/google_login-frames [--interactive]
+$ python3 change_detect.py --frame_dir media/google_login-frames [--interactive] [--ocr {easyocr, tesseract}]
 ```
 
 Use ``--interactive`` first to see how this program actually works. User input:
@@ -40,6 +46,7 @@ Use ``--interactive`` first to see how this program actually works. User input:
 
 Not using it simply prints out the OCR'd text of the character difference, without requiring user input.
 
+Note that EasyOCR currently performs better than tesseract.
 
 ### Capturing from a USB device (like in the attack and threat model setup)
 
