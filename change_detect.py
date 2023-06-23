@@ -6,9 +6,6 @@ import re
 import pytesseract
 import numpy as np
 
-# Set the path to the Tesseract executable
-pytesseract.pytesseract.tesseract_cmd = r"/opt/homebrew/bin/tesseract"
-
 # Threshold for fine tuning
 BLUR_THRESHOLD = 1000
 CONTRAST_THRESHOLD = 200
@@ -104,6 +101,7 @@ def join_images_horizontally(image_directory, output_path):
     image_files = sorted(os.listdir(image_directory), key=lambda x: os.path.getmtime(os.path.join(image_directory, x)))
 
     for filename in image_files:
+        image_path = os.path.join(image_directory, filename)
         image = cv2.imread(image_path)
 
         if image is not None:
@@ -124,7 +122,6 @@ def join_images_horizontally(image_directory, output_path):
     [os.remove(os.path.join(image_directory, file)) for file in os.listdir(image_directory) if os.path.isfile(os.path.join(image_directory, file))]
     
     
-
 def perform_ocr(image):
     text_data = pytesseract.image_to_data(image, config="--psm 10 -l eng", output_type=pytesseract.Output.DICT)
     confidences = text_data["conf"]
@@ -145,8 +142,9 @@ def save_image(image, path):
 def display_image(image, window_name, frame_index, total_frames):
     if args.interactive:
         title = f"Motion-based detection - [{frame_index}/{total_frames}]"
-        cv2.setWindowTitle(window_name, title)
         cv2.imshow(window_name, image)
+        cv2.moveWindow(window_name, 5,15) # move image to top left
+        cv2.setWindowTitle(window_name, title)
         cv2.waitKey(0)
 
 def main():
