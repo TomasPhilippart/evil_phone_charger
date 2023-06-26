@@ -38,8 +38,9 @@ parser.add_argument('--framerate', default='20', type=int, choices=range(1, 31),
 parser.add_argument('--keywords', type=str, nargs='+', help='Keywords to look for and trim the video based on (example: password,email,confidential)')
 args = parser.parse_args()
 
+print(args.keywords)
 # (OPTIONAL) Cleanup: remove garbage, easier for testing
-#os.system('./cleanup.sh')
+os.system('./cleanup.sh')
 
 # EasyOCR reader
 if args.ocr_mode == "easyocr":
@@ -117,39 +118,6 @@ def video2frames():
     return i
 
 
-def preprocess_image(image):
-    # Convert the image to grayscale
-    image = image.convert("L")
-
-    # Enhance the image contrast
-    enhancer = ImageEnhance.Contrast(image)
-    image = enhancer.enhance(2.0)
-
-    # Convert the image to binary (black and white)
-    threshold = 128
-    image = image.point(lambda p: p > threshold and 255)
-
-    # Apply additional preprocessing steps
-    img_array = np.array(image)
-    
-    # Apply Gaussian blur to reduce noise
-    blurred = cv2.GaussianBlur(img_array, (5, 5), 0)
-
-    # Apply adaptive thresholding to further enhance text
-    threshold_img = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 11, 4)
-
-    # Apply morphological transformations (erosion and dilation) to enhance text regions
-    kernel = np.ones((3, 3), np.uint8)
-    processed_img = cv2.erode(threshold_img, kernel, iterations=1)
-    processed_img = cv2.dilate(processed_img, kernel, iterations=1)
-
-    # Convert the processed image back to PIL Image format
-    processed_image = Image.fromarray(processed_img)
-
-    return processed_image
-
-
-
 def detect_text(path):
     from google.cloud import vision
     client = vision.ImageAnnotatorClient()
@@ -219,50 +187,28 @@ def frames2text(num_frames):
                 frame_path = f'{frame_directory}/{video_frame.name}'
                 frame_image = Image.open(frame_path)
 
-                # Preprocess the frame image
-                preprocessed_image = preprocess_image(frame_image)
-
-                # Save the preprocessed image for reference (optional)
-                preprocessed_image.save(f'{frame_directory}/preprocessed_{video_frame.name}')
-
                 # Perform OCR on the preprocessed image
-                results[video_frame.name] = detect_text(preprocessed_image)
+                results[video_frame.name] = detect_text(frame_image)
 
                 pbar.update(1)
 
     elif args.ocr_mode == "tesseract":
         with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
             for video_frame in frame_files:
-                try:
-                    results[video_frame.name] = pytesseract.image_to_string(
-                        preprocess_image(Image.open(f'{frame_directory}/{video_frame.name}')),
-                        lang='eng+osd',
-                        config='--oem 1 --psm 1 --dpi 72',
-                        timeout=2
-                    )
-                except RuntimeError as timeout_error:
-                    # Tesseract processing is terminated
-                    pass
+                results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'),
+                    lang='eng+osd',
+                    config='--oem 1 --psm 1 --dpi 72',
+                    timeout=2
+                )
                 pbar.update(1)
                 
     elif args.ocr_mode == "easyocr":
         with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
             for video_frame in frame_files:
-                # Load the frame image
                 frame_path = f'{frame_directory}/{video_frame.name}'
                 frame_image = Image.open(frame_path)
-
-                # Preprocess the frame image if necessary
-                preprocessed_image = preprocess_image(frame_image)
-                
-                preprocessed_image = np.array(preprocessed_image)
-
-                # Perform OCR on the preprocessed image using EasyOCR
-                result = reader.readtext(preprocessed_image)
-
-                # Store the result in the results dictionary
-                results[video_frame.name] = result
-                
+                results[video_frame.name] = reader.readtext(frame_image)[0] if reader.readtext(frame_image) else ''
+                print(results)
                 pbar.update(1)
 
     return results
@@ -318,10 +264,11 @@ def write_results(results):
     results_directory_path = f"results/{results_directory}"
     os.makedirs(results_directory_path, exist_ok=True)
 
-    with tqdm(total=len(results), unit='frame', desc="Processing keywords") as pbar:
-        for key in results:
-            process_keywords(results[key], key)
-            pbar.update(1)
+    if args.keywords:
+        with tqdm(total=len(results), unit='frame', desc="Processing keywords") as pbar:
+            for key in results:
+                process_keywords(results[key], key)
+                pbar.update(1)
 
     results_dict = {key: results[key] for key in results}
 
@@ -329,12 +276,13 @@ def write_results(results):
     with open(results_file, 'w') as file:
         json.dump(results_dict, file, indent=4)
 
-    # Convert keyword frames back to a video
-    for keyword in args.keywords[0].split(','):
-        keyword_result_directory = f"{results_directory_path}/{keyword}"
-        frames_pattern = f"{keyword_result_directory}/frames/frame*.jpg"
-        output_video_path = f"{keyword_result_directory}/{keyword}.mp4"
-        frames2video(frames_pattern, output_video_path)
+    if args.keywords:
+        # Convert keyword frames back to a video
+        for keyword in args.keywords[0].split(','):
+            keyword_result_directory = f"{results_directory_path}/{keyword}"
+            frames_pattern = f"{keyword_result_directory}/frames/frame*.jpg"
+            output_video_path = f"{keyword_result_directory}/{keyword}.mp4"
+            frames2video(frames_pattern, output_video_path)
 
     print(f"Results written to {results_file}")
 
