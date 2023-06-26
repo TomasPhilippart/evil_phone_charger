@@ -10,10 +10,12 @@
 #   SOFTWARE.
 
 import argparse
+import glob
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageChops
+from PIL import Image, ImageEnhance
 import pytesseract
+import easyocr
 import os
 import re
 import cv2
@@ -21,91 +23,133 @@ import time
 from moviepy.editor import VideoFileClip
 import hashlib
 from tqdm import tqdm
+from fuzzywuzzy import fuzz
+import shutil
+import json
 
 
 # Parse arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('--mode', default="video", type=str, choices=['usb', 'video'], help='Either capture frames directly from USB device or use video file.')
-parser.add_argument('--capture_time', default="100", type=int, help='How many seconds to capture. Unlimited is 0. (default: 10).')
-parser.add_argument('--filename', required=True, type=str, help='Filename for video to process.')
-parser.add_argument('--ocr_mode', default='tesseract', choices=['tesseract', 'google_vision'], help='Use either Tesseract (default) or Google Cloud Vision API (paid!)')
+parser.add_argument('--mode', default="video", type=str, choices=['usb', 'video'], help='Either capture frames directly from USB device or use a video file.')
+parser.add_argument('--capture_time', default="100", type=int, help='How many seconds to capture. Unlimited is 0 (default: 10).')
+parser.add_argument('--filename', required=True, type=str, help='Filename for the video to process.')
+parser.add_argument('--ocr_mode', default='tesseract', choices=['tesseract', 'google_vision', 'easyocr'], help='Use either Tesseract (default) or Google Cloud Vision API (paid!)')
 parser.add_argument('--framerate', default='20', type=int, choices=range(1, 31), help='Framerate for capture (default: 20).')
+parser.add_argument('--keywords', type=str, nargs='+', help='Keywords to look for and trim the video based on (example: password,email,confidential)')
 args = parser.parse_args()
 
 # (OPTIONAL) Cleanup: remove garbage, easier for testing
 #os.system('./cleanup.sh')
 
-def frame_capture():
-    args.filename = f"media/{args.filename}" # Change filename to include the media/ prefix, so we store frames there
-    print("Starting frame capture... Press CTRL+C to stop recording frames.")
+# EasyOCR reader
+if args.ocr_mode == "easyocr":
+    reader = easyocr.Reader(['en'])
+    print("Warning: Using EasyOCR. Although it yields better results, it is quite slow.")
     
-    # Create directory
-    os.mkdir(f"{args.filename}-frames")
+def frame_capture():
+    args.filename = f"media/{args.filename}"  # Change the filename to include the media/ prefix, so we store frames there
+    print("Starting frame capture... Press CTRL+C to stop recording frames.")
+
+    # Create the directory
+    os.makedirs(f"{args.filename}-frames", exist_ok=True)
 
     # Create a VideoCapture object
     cap = cv2.VideoCapture(0)
-    
-    # Check if camera opened successfully
-    if not cap.isOpened(): 
-        print("Unable to read camera feed")
-    
-    # Default resolutions of the frame are obtained.The default resolutions are system dependent.
+
+    # Check if the camera opened successfully
+    if not cap.isOpened():
+        print("Unable to read the camera feed")
+
+    # Default resolutions of the frame are obtained. The default resolutions are system-dependent.
     # We convert the resolutions from float to integer.
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
-    
+
     i = 0
     time_start = time.time()
     try:
-        while((args.capture_time != 0 and time.time() < time_start + args.capture_time) or (args.capture_time == 0)) :
+        while ((args.capture_time != 0 and time.time() < time_start + args.capture_time) or (args.capture_time == 0)):
             ret, frame = cap.read()
-        
-            if ret: 
+
+            if ret:
                 cv2.imwrite(f"{args.filename}-frames/frame{i}.jpg", frame)
-                i+=1
-        
+                i += 1
+
             # Break the loop
             else:
-                break 
-        
-            time.sleep(1/args.framerate)
+                break
+
+            time.sleep(1 / args.framerate)
     except KeyboardInterrupt:
         print("CTRL+C detected, stopping frame capture.")
         pass
-    # When everything done, release the video capture and video write objects
+    # When everything is done, release the video capture and video write objects
     cap.release()
-    
-    # Closes all the frames
-    cv2.destroyAllWindows() 
+
+    # Close all the frames
+    cv2.destroyAllWindows()
 
     return i
 
 
 def video2frames():
-    # load the video clip
+    # Load the video clip
     video_clip = VideoFileClip(args.filename)
-    # make a folder by the name of the video file
+    # Make a folder by the name of the video file
     filename, _ = os.path.splitext(args.filename)
     filename += "-frames"
-    if not os.path.isdir(filename):
-        os.mkdir(filename)
+    os.makedirs(filename, exist_ok=True)
 
     i = 0
 
-    # if the SAVING_FRAMES_PER_SECOND is above video FPS, then set it to FPS (as maximum)
+    # If the SAVING_FRAMES_PER_SECOND is above video FPS, then set it to FPS (as maximum)
     saving_frames_per_second = min(video_clip.fps, args.framerate)
-    # if SAVING_FRAMES_PER_SECOND is set to 0, step is 1/fps, else 1/SAVING_FRAMES_PER_SECOND
+    # If SAVING_FRAMES_PER_SECOND is set to 0, step is 1/fps, else 1/SAVING_FRAMES_PER_SECOND
     step = 1 / video_clip.fps if saving_frames_per_second == 0 else 1 / saving_frames_per_second
-    # iterate over each possible frame
+    # Iterate over each possible frame
     for current_duration in tqdm(np.arange(0, video_clip.duration, step), desc="Converting video to frames", unit="frame"):
-        # format the file name and save it
-        frame_filename = os.path.join(filename, f"frame{i}.jpg") 
-        i += 1 
-        # save the frame with the current duration
+        # Format the file name and save it
+        frame_filename = os.path.join(filename, f"frame{i}.jpg")
+        i += 1
+        # Save the frame with the current duration
         video_clip.save_frame(frame_filename, current_duration)
-    
+
     return i
+
+
+def preprocess_image(image):
+    # Convert the image to grayscale
+    image = image.convert("L")
+
+    # Enhance the image contrast
+    enhancer = ImageEnhance.Contrast(image)
+    image = enhancer.enhance(2.0)
+
+    # Convert the image to binary (black and white)
+    threshold = 128
+    image = image.point(lambda p: p > threshold and 255)
+
+    # Apply additional preprocessing steps
+    img_array = np.array(image)
     
+    # Apply Gaussian blur to reduce noise
+    blurred = cv2.GaussianBlur(img_array, (5, 5), 0)
+
+    # Apply adaptive thresholding to further enhance text
+    threshold_img = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV, 11, 4)
+
+    # Apply morphological transformations (erosion and dilation) to enhance text regions
+    kernel = np.ones((3, 3), np.uint8)
+    processed_img = cv2.erode(threshold_img, kernel, iterations=1)
+    processed_img = cv2.dilate(processed_img, kernel, iterations=1)
+
+    # Convert the processed image back to PIL Image format
+    processed_image = Image.fromarray(processed_img)
+
+    return processed_image
+
+
+
 def detect_text(path):
     from google.cloud import vision
     client = vision.ImageAnnotatorClient()
@@ -123,15 +167,14 @@ def detect_text(path):
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
-        
-    return texts[0].description
 
+    return texts[0].description
 
 
 def filter_duplicate_frames(frame_directory):
     file_dict = {}
     duplicate_frames = 0
-    
+
     # Count the total number of files in the directory
     total_files = sum(1 for _ in Path(frame_directory).glob('*'))
 
@@ -155,9 +198,10 @@ def filter_duplicate_frames(frame_directory):
 
             # Update the progress bar
             pbar.update(1)
-            
+
     #print(f"Removed {duplicate_frames} duplicate frames.")
     return duplicate_frames
+
 
 def frames2text(num_frames):
     results = {}
@@ -166,41 +210,133 @@ def frames2text(num_frames):
     # Filter out duplicate frames
     num_unique_frames = num_frames - filter_duplicate_frames(frame_directory)
     frame_files = list(Path(frame_directory).glob('*'))
-    
-
-
 
     # Convert frames to text
     if args.ocr_mode == "google_vision":
         with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
             for video_frame in frame_files:
-                results[video_frame.name] = detect_text(f'{frame_directory}/{video_frame.name}')
-                pbar.update(1)
+                # Load the frame image
+                frame_path = f'{frame_directory}/{video_frame.name}'
+                frame_image = Image.open(frame_path)
 
+                # Preprocess the frame image
+                preprocessed_image = preprocess_image(frame_image)
+
+                # Save the preprocessed image for reference (optional)
+                preprocessed_image.save(f'{frame_directory}/preprocessed_{video_frame.name}')
+
+                # Perform OCR on the preprocessed image
+                results[video_frame.name] = detect_text(preprocessed_image)
+
+                pbar.update(1)
 
     elif args.ocr_mode == "tesseract":
         with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
             for video_frame in frame_files:
                 try:
-                    results[video_frame.name] = pytesseract.image_to_string(Image.open(f'{frame_directory}/{video_frame.name}'), lang='eng+osd', config='--oem 1 --psm 1 --dpi 72', timeout=2)
+                    results[video_frame.name] = pytesseract.image_to_string(
+                        preprocess_image(Image.open(f'{frame_directory}/{video_frame.name}')),
+                        lang='eng+osd',
+                        config='--oem 1 --psm 1 --dpi 72',
+                        timeout=2
+                    )
                 except RuntimeError as timeout_error:
                     # Tesseract processing is terminated
                     pass
                 pbar.update(1)
-    return results
-    
-def write_results(results):
-    results_file = os.path.splitext(args.filename.split("/")[-1])[0] # strip of initial directory (media/) and remove extension
+                
+    elif args.ocr_mode == "easyocr":
+        with tqdm(total=len(frame_files), unit='frame', desc=f"Converting frames to text") as pbar:
+            for video_frame in frame_files:
+                # Load the frame image
+                frame_path = f'{frame_directory}/{video_frame.name}'
+                frame_image = Image.open(frame_path)
 
-    with open(f"results/{results_file}.txt", "w") as file:
-        results = dict(sorted(results.items(), key=lambda x: int(re.findall(r'\d+', x[0])[0])))
+                # Preprocess the frame image if necessary
+                preprocessed_image = preprocess_image(frame_image)
+                
+                preprocessed_image = np.array(preprocessed_image)
+
+                # Perform OCR on the preprocessed image using EasyOCR
+                result = reader.readtext(preprocessed_image)
+
+                # Store the result in the results dictionary
+                results[video_frame.name] = result
+                
+                pbar.update(1)
+
+    return results
+
+
+def process_keywords(frame_content, frame_filename):
+    for keyword in args.keywords[0].split(','):
+        # Create directory to store result for this keyword
+        keyword_result_directory = f"results/{os.path.splitext(args.filename.split('/')[-1])[0]}/{keyword}/frames"
+        os.makedirs(keyword_result_directory, exist_ok=True)
+
+        if fuzz.partial_ratio(frame_content, keyword) >= 70:
+            # Copy frame file to result directory
+            frame_file = f"{os.path.splitext(args.filename)[0]}-frames/{frame_filename}"
+            if os.path.isfile(frame_file):
+                shutil.copy2(frame_file, f"{keyword_result_directory}/{frame_filename}")
+
+def frames2video(frames_pattern, output_video_path):
+    frames = glob.glob(frames_pattern)
+    frames.sort(key=lambda x: int(re.findall(r'\d+', x)[0]))
+
+    # Check if frames are available
+    if not frames:
+        # debug: print(f"No frames found for pattern: {frames_pattern}")
+        return
+
+    # Get the frame dimensions from the first frame
+    first_frame = cv2.imread(frames[0])
+    frame_height, frame_width, _ = first_frame.shape
+
+    # Create a VideoWriter object to write the output video
+    output_video = cv2.VideoWriter(
+        output_video_path,
+        cv2.VideoWriter_fourcc(*"mp4v"),
+        args.framerate,
+        (frame_width, frame_height),
+    )
+
+    with tqdm(total=len(frames), unit='frame', desc="Converting frames to videos") as pbar:
+        for frame_file in frames:
+            frame = cv2.imread(frame_file)
+
+            # Write the frame to the output video
+            output_video.write(frame)
+            pbar.update(1)
+
+    # Release the VideoWriter object
+    output_video.release()
+
+
+def write_results(results):
+    results_directory = os.path.splitext(args.filename.split("/")[-1])[0]  # Strip initial directory and remove extension
+    results_directory_path = f"results/{results_directory}"
+    os.makedirs(results_directory_path, exist_ok=True)
+
+    with tqdm(total=len(results), unit='frame', desc="Processing keywords") as pbar:
         for key in results:
-            file.write(f"Frame: '{key}'\n")
-            file.write("------------\n")
-            file.write(results[key])
-            file.write("\n================================================\n")
-    
-    print(f"Results writen to results/{results_file}.txt.")        
+            process_keywords(results[key], key)
+            pbar.update(1)
+
+    results_dict = {key: results[key] for key in results}
+
+    results_file = f"{results_directory_path}/result.json"
+    with open(results_file, 'w') as file:
+        json.dump(results_dict, file, indent=4)
+
+    # Convert keyword frames back to a video
+    for keyword in args.keywords[0].split(','):
+        keyword_result_directory = f"{results_directory_path}/{keyword}"
+        frames_pattern = f"{keyword_result_directory}/frames/frame*.jpg"
+        output_video_path = f"{keyword_result_directory}/{keyword}.mp4"
+        frames2video(frames_pattern, output_video_path)
+
+    print(f"Results written to {results_file}")
 
 if __name__ == "__main__":
     if args.mode == "usb":

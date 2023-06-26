@@ -1,4 +1,5 @@
 easyocr==1.7.0
+fuzzywuzzy==0.18.0
 moviepy==1.0.3
 numpy==1.22.4
 opencv_python==4.5.5.64

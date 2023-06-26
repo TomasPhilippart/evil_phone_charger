@@ -1,3 +1,14 @@
+#!/usr/bin/python3
+
+# DISCLAIMER
+#   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#   SOFTWARE.
+
 import argparse
 from pathlib import Path
 import cv2
@@ -7,7 +18,7 @@ import pytesseract
 import numpy as np
 import easyocr
 
-# Threshold for fine tuning
+# Threshold for fine tuning -> feel free to adjust these
 BLUR_THRESHOLD = 1000
 CONTRAST_THRESHOLD = 200
 CONFIDENCE_THRESHOLD_TESSERACT = 70
@@ -22,7 +33,7 @@ CHARACTER_WHITELIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234
 parser = argparse.ArgumentParser()
 parser.add_argument('--frame_dir', required=True, type=str, help='Directory where frames are stored.')
 parser.add_argument('--interactive', action='store_true', help='Run the program in interactive mode with user input.')
-parser.add_argument('--ocr', choices=['tesseract', 'easyocr'], default='easyocr', help='Choose the OCR engine to use.')
+parser.add_argument('--ocr', choices=['tesseract', 'easyocr','google_vision'], default='easyocr', help='Choose the OCR engine to use.')
 args = parser.parse_args()
 
 # easy ocr reader
@@ -160,8 +171,8 @@ def save_image(image, path):
 def display_image(image, window_name, frame_index, total_frames):
     if args.interactive:
         title = f"Motion-based detection - [{frame_index}/{total_frames}]"
-        cv2.imshow(window_name, image)
         cv2.moveWindow(window_name, 5,15) # move image to top left
+        cv2.imshow(window_name, image)
         cv2.setWindowTitle(window_name, title)
         cv2.waitKey(0)
 
@@ -255,8 +266,7 @@ def main():
             prev_image = curr_image
             
         cv2.destroyAllWindows()
-    
-    
+        
     return ocr_text
 
 if __name__ == "__main__":

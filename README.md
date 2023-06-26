@@ -25,7 +25,7 @@ NOTE: All of the development was done on MacOS Ventura, I cannot confirm that al
 ## Usage: 
 
 ```console
-$ python3 main.py [--mode <usb, video>] --filename <FILENAME> [--framerate <FRAMERATE>, --mode <tesseract|google_vision>]
+$ python3 main.py [--mode <usb, video>] --filename <FILENAME> [--framerate <FRAMERATE>, --mode <tesseract|easyocr|google_vision>, --keywords <x,y,z>]
 ```
 
 Check ``.txt`` under ``/results`` folder for the processed text.
@@ -35,7 +35,7 @@ Check ``.txt`` under ``/results`` folder for the processed text.
 ### Using change_detect.py
 
 ```console
-$ python3 change_detect.py --frame_dir media/google_login-frames [--interactive] [--ocr {easyocr, tesseract}]
+$ python3 change_detect.py --frame_dir media/google_login-frames [--interactive] [--ocr {easyocr|tesseract}]
 ```
 
 Use ``--interactive`` first to see how this program actually works. User input:
