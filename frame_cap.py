@@ -38,9 +38,8 @@ parser.add_argument('--framerate', default='20', type=int, choices=range(1, 31),
 parser.add_argument('--keywords', type=str, nargs='+', help='Keywords to look for and trim the video based on (example: password,email,confidential)')
 args = parser.parse_args()
 
-print(args.keywords)
 # (OPTIONAL) Cleanup: remove garbage, easier for testing
-os.system('./cleanup.sh')
+#os.system('./cleanup.sh')
 
 # EasyOCR reader
 if args.ocr_mode == "easyocr":
